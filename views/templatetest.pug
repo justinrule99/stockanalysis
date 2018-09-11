@@ -1,0 +1,59 @@
+doctype html
+// templatetest.pug
+head
+  meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
+  title= tile
+  style
+    include style.css
+  link(href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet')
+  //link(rel='shortcut icon' href='/favicon.ico' type='image/x-icon')
+  //link(rel='icon' href='/favicon.ico' type='image/x-icon')
+    
+
+header
+  .innertube
+    h1 Stock Market Analysis
+#wrapper
+  main
+    #content
+      .innertube
+        //img(src="/images/nyse.jpg")
+        h1= retformat
+        h2= percent
+        h2= tot
+
+  nav
+    .innertube
+      form#enterdata(method='POST')
+        h2 Symbol
+        ul
+          br
+          li
+             input(type='text' name='symbol' class='inputbox')
+          br
+          br
+
+        h2 Date
+        ul
+          br
+          li
+             input(type='date' name='date' value='yyyy-mm-dd' class='inputbox')
+          br
+          br
+
+        h2 Amount
+        ul
+          br
+          li
+            input(type='text' name='amount' class='inputbox')
+          br
+          br
+        ul
+          br
+          li
+            input(type='submit' value='Submit' id='submit')
+          br
+
+footer
+  
+    p Copyright Justin Rule 2018

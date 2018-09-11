@@ -1,0 +1,17 @@
+{
+  "name": "testnode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Justin Rule",
+  "license": "ISC",
+  "dependencies": {
+    "alphavantage": "^1.1.1",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.4",
+    "pug": "^2.0.3"
+  }
+}

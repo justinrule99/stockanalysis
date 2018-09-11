@@ -1,0 +1,100 @@
+/*color scheme: 
+     main: #7EC0EE
+     secondary: #eedd7e
+     tertiary: #ee7ea0
+     darker: #4699d5
+*/
+
+body {
+     margin:0;
+     padding:0;
+     font-family: 'Abel';
+     line-height: 1.5em;
+     background-image: url('/images/nyse.jpg'); 
+     background-size: cover; 
+     background-repeat: none;
+}
+ header {
+     background: #7EC0EE;
+     height: 100px;
+}
+ header h1 {
+     margin: 0;
+     padding-top: 35px;
+     text-align: center;
+     color: #253947;
+}
+ main {
+     padding-bottom: 10010px;
+     margin-bottom: -10000px;
+     float: left;
+     width: 100%;
+     color: #253947;
+}
+ nav {
+     padding-bottom: 10010px;
+     margin-bottom: -10000px;
+     float: left;
+     width: 230px;
+     margin-left: -230px;
+     background: #d6dbe0;
+     height: 785px;
+}
+ footer {
+     clear: left;
+     width: 100%;
+     background: #7EC0EE;
+     text-align: center;
+     padding: 4px 0;
+}
+ #wrapper {
+     overflow: hidden;
+}
+ #content {
+     margin-right: 230px;
+    /* Same as 'nav' width */
+}
+
+#submit {
+     border-radius: 0px;
+     height:50px;
+     width:100px;
+     background-color: #7EC0EE;
+     font-size:20px;
+     font-family: 'Abel';
+     font-weight: bold;
+     border: 2px solid #253947;
+} 
+#submit:active{
+     background-color: white;
+}
+.inputbox{
+     border-radius:0px;
+     background-color: #bedff6;
+     color: #3f6077;
+     height:30px;
+     width:160px;
+     font-size:16px;
+     font-weight: bold;
+     text-align:center;
+     text-transform: uppercase;
+     border: 2px solid #253947;
+}
+ .innertube {
+     margin: 15px;
+    /* Padding for content */
+     margin-top: 0;
+     text-align: center;
+}
+ p {
+     color: #555;
+}
+ nav h2{
+     color:#253947;
+ }
+ nav ul {
+     list-style-type: none;
+     margin: 0px;
+     padding: 0;
+}
+
