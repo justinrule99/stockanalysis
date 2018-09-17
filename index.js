@@ -148,7 +148,6 @@ app.get('/:symbol/:date/:amount', function(req,res){
 
 	
 	//res.render('templatetest', {tile: "idk", retformat: "Test", percent: "Test", tot: "Alpha Vantage is broken"});
-	//const picker = datepicker(document.querySelector('#datepick'), {noWeekends: true});
 
 });
 
