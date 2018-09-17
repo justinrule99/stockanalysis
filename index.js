@@ -15,6 +15,7 @@ const alpha = require('alphavantage')({ key: alphaApiKey });
 //bug: large gains interperted as large negative losses
 //interpreted as currentval>oldval when currentval really >> oldval
 //must deal with stock splits
+//gonna change some stuff
 var getReturn = function(oldVal, currentVal, investment){
 	var factor = currentVal / oldVal;
 	var rounded = Math.round((investment*factor) * 100) / 100;
@@ -80,7 +81,6 @@ app.post('/:symbol/:date/:amount', urlencodedParser, function(req,res){
 
 app.get('/', function(req,res){
 	console.log("get request on index");
-	//res.send("url format: /:symbol/:yyyy-mm-dd/:amount");
 	res.render('templatetest', {title: "Stocks", retformat: "Welcome to the stock market analysis tool!", percent: "Enter data on the right to see stock results over time"});
 })
 
@@ -105,14 +105,14 @@ app.get('/:symbol/:date/:amount', function(req,res){
 	alpha.data.daily_adjusted(symbol, 'full', 'json', '1min').then(data => { 
 
 		var oldClose = data['Time Series (Daily)'][date]['4. close'];
-		var todayClose =  data['Time Series (Daily)']['2018-08-27']['4. close'];
+		var todayClose =  data['Time Series (Daily)']['2018-09-12']['4. close'];
 		console.log("Closing on "+date+": "+oldClose+", Most recent closing: "+todayClose);
 
 		var ret = getReturn(oldClose, todayClose, amount);
 		console.log(ret);
 
 		//loop through included dates to find a split event
-		//need to figure out what to loop through
+		//need to figure out what to loop through to capture splits within time frame
 		//while(){
 
 		//}
@@ -121,6 +121,10 @@ app.get('/:symbol/:date/:amount', function(req,res){
 		var retformat = "Amount today if you invested $"+amount+" in "+symbol+" on "+date+": "+ret.rounded;
 		var percent = "That's a "+ret.percentchange+"% "+ret.direction;
 		var tot = "Total Return: "+ret.totalchange;
+		var unixTime = Date.now(); 
+		console.log("TIME: "+unixTime);
+		//doesn't give updated news for some stocks
+		var widgeturl = 'http://us1.rssfeedwidget.com/getrss.php?time='+unixTime+'&x=http%3A%2F%2Farticlefeeds.nasdaq.com%2Fnasdaq%2Fsymbols%3Fsymbol%3D' + symbol+'&w=200&h=500&bc=333333&bw=1&bgc=transparent&m=20&it=true&t=(default)&tc=333333&ts=15&tb=transparent&il=true&lc=0000FF&ls=14&lb=false&id=true&dc=333333&ds=14&idt=true&dtc=284F2D&dts=12';
 
 
 
@@ -133,7 +137,7 @@ app.get('/:symbol/:date/:amount', function(req,res){
 
 		//var totalCoef = calcSplit()
 
-		res.render('templatetest', {tile: symbol, retformat: retformat, percent: percent, tot: tot});
+		res.render('templatetest', {tile: symbol, retformat: retformat, percent: percent, tot: tot, widgeturl: widgeturl});
 
 	}).catch((err) =>{
 		console.log(err);

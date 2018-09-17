@@ -86,6 +86,26 @@ body {
      margin-top: 0;
      text-align: center;
 }
+#widgetmain {
+     text-align:left;
+     overflow-y:auto; 
+     overflow-x:hidden;
+     padding-bottom: 10010px;
+     margin-bottom: -10000px;
+     width:200px;
+     background-color: #d6dbe0;
+     border:5px solid #333333;
+}
+#rsswidget{
+    height: 800px;
+}
+#rssOutput{
+     border:0;
+     padding:0; 
+     margin:0; 
+     width:200px; 
+     height:800px;
+}
  p {
      color: #555;
 }
